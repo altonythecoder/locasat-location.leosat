@@ -1,4 +1,4 @@
-# 🛰️ StarWeb-CARA: Global LEO Satellite Tracker & Ground Control Station
+# 🛰️ locaSAT: Global LEO Satellite Tracker & Ground Control Station
 
 Real-time 3D Space Domain Awareness (SDA) platform tracking Low Earth Orbit (LEO) constellations (Starlink, OneWeb, Iridium NEXT, Planet Labs, ISS) with 60 FPS smooth interpolation using SGP4 orbital mechanics and CesiumJS.
 
