@@ -113,21 +113,25 @@ class ConstellationTracker:
         return []
 
     def _fetch_all_tles(self) -> list[EarthSatellite]:
-        sats = self._fetch_from_celestrak()
-
-        if not sats and self.group_name == "active":
+        # Eğer grup 'active' ise, CelesTrak'in genel listesi yerine 
+        # sadece LEO filolarını birleştirerek çek
+        if self.group_name == "active":
             sats = []
             for grp in ["starlink", "oneweb", "stations", "iridium-NEXT"]:
                 self.group_name = grp
                 sats.extend(self._fetch_from_celestrak())
+            self.group_name = "active" # Loglama için ismi geri düzelt
+        else:
+            sats = self._fetch_from_celestrak()
 
+        # Eğer hala uydu yoksa ve grup 'stations' değilse istasyonları çek (Fallback)
         if not sats and self.group_name != "stations":
             self.group_name = "stations"
             sats = self._fetch_from_celestrak()
 
         print(f"🚀 TOPLAM {len(sats)} ADET AKTIF UYDU MOTORUNA YUKLENDI! [{self.group_name.upper()}]")
         return sats
-
+        
     def get_compact_telemetries(self) -> list[list]:
         now = self.ts.now()
         results = []
