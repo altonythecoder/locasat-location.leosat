@@ -8,8 +8,8 @@ Real-time 3D Space Domain Awareness (SDA) platform tracking Low Earth Orbit (LEO
 
 ```bash
 # Clone the repository
-git clone [https://github.com/KULLANICI_ADIN/REPO_ADIN.git](https://github.com/KULLANICI_ADIN/REPO_ADIN.git)
-cd REPO_ADIN
+git clone [https://github.com/altonythecoder/locasat-location.leosat](https://github.com/altonythecoder/locasat-location.leosat)
+cd locasat-location.leosat
 
 # Run with Docker Compose
 docker compose up --build
